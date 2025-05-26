@@ -23,6 +23,7 @@ namespace MVC.Controllers
             return View(data);
         }
 
+        [Route("[action]")]
         [Route("[action]/min/{priceMin:int}/max/{priceMax:int}")]
         public IActionResult SearchByPrice(int priceMin, int priceMax)
         {
