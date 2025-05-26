@@ -21,6 +21,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 //zapnuti controlleru
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddControllers();
 
 
 var app = builder.Build();
