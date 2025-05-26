@@ -11,5 +11,13 @@ namespace MVC.Controllers
 
             return View(data);
         }
+        public IActionResult GetById(int id)
+        {
+            var data = SocksDataset.GetSocks()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            return View(data);
+        }
     }
 }

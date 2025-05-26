@@ -5,16 +5,27 @@ using MVC.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// databaze local MSSQL y appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+//Entity
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+//prihlaseni options
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//zapnuti controlleru
 builder.Services.AddControllersWithViews();
 
+
+
 var app = builder.Build();
+
+//ZDE PIPILINE - POZOR PORADI JE SMERODATNE
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -35,9 +46,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//default controller=Home
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Socks}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
