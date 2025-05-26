@@ -3,6 +3,8 @@ using MVC.Data;
 
 namespace MVC.Controllers
 {
+    [Route("socks")]
+    [Route("ponozky")]
     public class SocksController : Controller
     {
         public IActionResult Index()
@@ -11,6 +13,7 @@ namespace MVC.Controllers
 
             return View(data);
         }
+        [Route("[action]/{id}")]
         public IActionResult GetById(int id)
         {
             var data = SocksDataset.GetSocks()
@@ -18,6 +21,15 @@ namespace MVC.Controllers
                 .FirstOrDefault();
 
             return View(data);
+        }
+
+        [Route("[action]/min/{priceMin:int}/max/{priceMax:int}")]
+        public IActionResult SearchByPrice(int priceMin, int priceMax)
+        {
+            var data = SocksDataset.GetSocks()
+                .Where(x => x.Price >= priceMin && x.Price <= priceMax);
+
+            return View("Index", data);
         }
     }
 }

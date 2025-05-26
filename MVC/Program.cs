@@ -50,7 +50,7 @@ app.UseAuthorization();
 //default controller=Home
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Socks}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
 
