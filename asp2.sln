@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinAPI", "MinAPI\MinAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinAPI8", "MinAPI8\MinAPI8.csproj", "{91B8EC99-8438-432A-95B0-FF6F3297C3C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91B8EC99-8438-432A-95B0-FF6F3297C3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B8EC99-8438-432A-95B0-FF6F3297C3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B8EC99-8438-432A-95B0-FF6F3297C3C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
