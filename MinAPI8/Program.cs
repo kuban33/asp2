@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using MinAPI8;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<SimpleFileLogger>();
+
+builder.Services.AddDirectoryBrowser();
+var fileProvider = new PhysicalFileProvider(builder.Environment.WebRootPath);
 
 var app = builder.Build();
 
@@ -49,6 +53,12 @@ app.MapGet("/detail/{id:int}", (int id, SimpleFileLogger logger) =>
         return $"Detail of product: {id}";
     }
 );
+
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
+    FileProvider = fileProvider,
+    RequestPath = "/wwwroot"
+});
 
 app.Run();
 
