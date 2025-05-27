@@ -5,10 +5,14 @@
 *@
 
 @{
-
+    DateTime datum = (DateTime)ViewData["datum"];
 }
 
 <h1>Ponozky</h1>
+
+<div>
+    @datum.ToString("yyyyMMdd")
+</div>
 
 @foreach(var sock in Model)
 {

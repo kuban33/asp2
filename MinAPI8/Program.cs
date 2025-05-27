@@ -39,6 +39,8 @@ app.MapGet("/weatherforecast", () =>
 .WithDescription("Predpoved pocasi")
 .WithOpenApi();
 
+app.MapGet("/detail/{id:int}", (int id) => $"Detail of product: {id}");
+
 app.Run();
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

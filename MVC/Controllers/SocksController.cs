@@ -11,6 +11,9 @@ namespace MVC.Controllers
         {
             var data = SocksDataset.GetSocks();
 
+            //predani dodatecnych dat
+            ViewData["datum"] = DateTime.Now;
+
             return View(data);
         }
         [Route("[action]/{id}")]
