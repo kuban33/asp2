@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC.Data;
 using MVC.Models;
+using MVC.Services;
 
 namespace MVC.Controllers
 {
@@ -15,16 +16,20 @@ namespace MVC.Controllers
     public class NewSocksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly SimpleFileLogger _logger;
 
-        public NewSocksController(ApplicationDbContext context)
+        public NewSocksController(ApplicationDbContext context, SimpleFileLogger logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: NewSocks
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            _logger.Log("calling index on NewSocks\n");
+
             string login = "neprihlasen";
             if (User.Identity.IsAuthenticated)
             {
@@ -37,6 +42,8 @@ namespace MVC.Controllers
         // GET: NewSocks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            _logger.Log("calling detail on NewSocks\n");
+
             if (id == null)
             {
                 return NotFound();

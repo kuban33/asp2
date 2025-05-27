@@ -1,9 +1,13 @@
+using MinAPI8;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<SimpleFileLogger>();
 
 var app = builder.Build();
 
@@ -39,7 +43,12 @@ app.MapGet("/weatherforecast", () =>
 .WithDescription("Predpoved pocasi")
 .WithOpenApi();
 
-app.MapGet("/detail/{id:int}", (int id) => $"Detail of product: {id}");
+app.MapGet("/detail/{id:int}", (int id, SimpleFileLogger logger) =>
+    {
+        logger.Log("loguji z api");
+        return $"Detail of product: {id}";
+    }
+);
 
 app.Run();
 
