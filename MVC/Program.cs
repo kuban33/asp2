@@ -45,6 +45,9 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.UseRequestLog();
+
 app.UseStaticFiles();
 
 app.UseRouting();
