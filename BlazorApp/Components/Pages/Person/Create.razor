@@ -1,0 +1,16 @@
+﻿@page "/person/create"
+@using BlazorApp.Components.Forms
+
+<h3>Create new person</h3>
+
+<PersonForm Person="person" OnSave="AddNewPerson"/>
+
+@code {
+    Model.Person person = new();
+
+    void AddNewPerson()
+    {
+        Console.WriteLine("vytvarim osobu do db");
+    }
+
+}

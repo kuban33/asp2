@@ -69,6 +69,10 @@
 	<div class="col-2">
 		<button class="btn btn-primary" @onclick="Next">Next</button>
 	</div>
+	<div class="col-2">
+		<button class="btn btn-primary" @onclick="Add10">Add10</button>
+	</div>
+
 </div>
 
 @code {
@@ -109,5 +113,13 @@
 
 		peopleToShow = data.GetData().Skip(start).Take(take).ToList();
 	}
+
+	void Add10()
+	{
+		var next10 = data.GetData().Skip(peopleToShow.Count).Take(10);
+
+		peopleToShow.AddRange(next10);
+	}
+
 
 }
