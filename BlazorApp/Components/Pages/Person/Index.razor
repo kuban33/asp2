@@ -2,6 +2,17 @@
 
 @inject DataSet data
 
+<div class="form-group">
+	<label class="control-label col-md-2">Email hledat</label>
+	<div class="col-md-3">
+		<InputText @bind-Value="hledany" class="form-control" />
+	</div>
+	<div class="col-2">
+		<button class="btn btn-primary" @onclick="Search">Search</button>
+	</div>
+</div>
+
+
 <h3>Prvnich 20 osob</h3>
 
 <table class="table">
@@ -60,7 +71,6 @@
 	</div>
 </div>
 
-
 @code {
 	List<BlazorApp.Model.Person> peopleToShow = new List<Model.Person>();
 
@@ -68,6 +78,8 @@
 	private int start = 0;
 
 	private bool prevDisabled = true;
+
+	private string hledany = "";
 
 	protected override void OnInitialized()
 	{
@@ -91,6 +103,11 @@
 			prevDisabled = true;
 
 		peopleToShow = data.GetData().Skip(start).Take(take).ToList();
+	}
+
+	void Search()
+	{
+		peopleToShow = data.GetData().Where(x => x.Email.Contains(hledany)).ToList();
 	}
 
 }
