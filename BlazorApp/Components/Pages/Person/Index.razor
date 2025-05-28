@@ -1,0 +1,96 @@
+﻿@page "/person"
+
+@inject DataSet data
+
+<h3>Prvnich 20 osob</h3>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>
+				Jmeno
+			</td>
+			<td>
+				Prijmeni
+			</td>
+			<td>
+				Email
+			</td>
+			<td>
+				Narozen
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var person in peopleToShow)
+		{
+			<tr>
+				<td>
+					@person.FirstName
+				</td>
+				<td>
+					@person.LastName
+				</td>
+				<td>
+					@person.Email
+				</td>
+				<td>
+					@person.DateOfBirth.ToString("yyyy-MM-dd")
+				</td>
+			</tr>
+
+		}
+
+	</tbody>
+</table>
+
+<div class="row">
+	<div class="col-2">
+		@if (!prevDisabled)
+		{
+			<button class="btn btn-primary" @onclick="Prev">Prev</button>
+		}
+		else
+		{
+			<button disabled="true" class="btn btn-primary" @onclick="Prev">Prev</button>
+		}
+	</div>
+	<div class="col-2">
+		<button class="btn btn-primary" @onclick="Next">Next</button>
+	</div>
+</div>
+
+
+@code {
+	List<BlazorApp.Model.Person> peopleToShow = new List<Model.Person>();
+
+	private int take = 10;
+	private int start = 0;
+
+	private bool prevDisabled = true;
+
+	protected override void OnInitialized()
+	{
+		peopleToShow = data.GetData().Take(take).ToList();
+	}
+
+	void Next()
+	{
+		start += take;
+		start = Math.Min(start, data.GetData().Count - take);
+		peopleToShow = data.GetData().Skip(start).Take(take).ToList();
+		prevDisabled = false;
+	}
+
+	void Prev()
+	{
+		start -= take;
+		start = Math.Max(0, start);
+
+		if (start == 0)
+			prevDisabled = true;
+
+		peopleToShow = data.GetData().Skip(start).Take(take).ToList();
+	}
+
+}

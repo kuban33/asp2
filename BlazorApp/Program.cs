@@ -1,4 +1,5 @@
 using BlazorApp.Components;
+using BlazorApp.Data;
 using BlazorApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.Services.AddRazorComponents()   //BLAZOR
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<SimpleCounter>();
+
+builder.Services.AddScoped<DataSet>();
 
 var app = builder.Build();
 
