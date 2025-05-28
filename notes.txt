@@ -1,0 +1,35 @@
+Co je to middleware?
+	Trida v pipeline.
+
+Co je HttpContext a jak jej ziskate?
+	Instance pro kazde spojeni
+	Ziskame ho injection
+
+Jak omezite cast weu na prihlasene uzivatele?
+	[Authorize]
+	[Allowanonymous]
+	[Authorize(Roles=...)]
+
+Scaffolding?
+	generovani kodu
+	login
+	controllers/views
+	db first
+
+
+
+Blazor
+pages .razor
+
+Blazor Server (default)
+	kod se vykonava na serveru a pres Web Sockets posle zmeny clientovi
+
+Blazor WebAssembly (pacman, nemocnice sifrovani )
+	pres JS Interop
+	wasm web assembly - binarni forma zkompilovaneho kodu, z jakehokoli jazyka (RUST, C#, Java)
+	pozor na citlivy kod u klienta
+
+
+DevExpress - Blazor UI Components
+
+MudBlazor, Radzen - opensource, free

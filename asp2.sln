@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinAPI8", "MinAPI8\MinAPI8.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{7EFABFCD-75A4-40C7-8635-BB905CC7E938}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23E7021F-40CC-46E5-AA6C-37A7BDCFB13C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFABFCD-75A4-40C7-8635-BB905CC7E938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFABFCD-75A4-40C7-8635-BB905CC7E938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFABFCD-75A4-40C7-8635-BB905CC7E938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFABFCD-75A4-40C7-8635-BB905CC7E938}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
